@@ -1,0 +1,14 @@
+name: da
+channels:
+- fastai
+- pytorch
+- defaults
+dependencies:
+- pip
+- numpy
+- pandas
+- matplotlib
+- jupyter
+- scikit-learn
+- nbdev
+- fastai

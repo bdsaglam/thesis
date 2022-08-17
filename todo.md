@@ -1,0 +1,2 @@
+- Equivariance in domain adaptation
+- use of VAE in domain adaptation
