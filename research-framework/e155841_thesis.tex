@@ -1,0 +1,78 @@
+\documentclass[conference]{IEEEtran}
+
+% Settings
+\IEEEoverridecommandlockouts
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+
+\graphicspath{ {../images/} }
+
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+
+\begin{document}
+
+% Info
+
+\title{Thesis framework\\ }
+
+\author{
+    \IEEEauthorblockN{Barış Deniz Sağlam}
+    \IEEEauthorblockA{
+        \textit{Informatics Institute} \\
+        \textit{Middle East Technical University} \\
+        Ankara, Turkey \\
+        e155841@metu.edu.tr
+    }
+}
+
+% Paper
+
+\maketitle
+
+\begin{abstract}
+\end{abstract}
+
+\begin{IEEEkeywords}
+unsupervised domain adaptation, transfer learning, zero-shot learning
+\end{IEEEkeywords}
+
+\section{Framework}
+
+\subsection{Background}
+
+In the last decade, deep learning has achieved great success on various computer vision tasks thanks to large-scale labelled datasets. However, it is expensive and time-consuming to label data for each task and domain. This sparked the motivation for self-supervised learning algorithms, and transfer learning. 
+
+Transfer learning is to use a pre-trained model for a different task or a domain than it is originally trained for assuming that the model's knowledge is transferrable. The performance of transfer learning is determined by generalizability of learned representations across different domains, where domain is defined as a specific distribution of sample space \cite{kouw2019review}. A direct transfer usually does not perform well due to dataset shift. Two common techniques of transfer learning exist to mitigate this problem; fine-tuning and domain adaptation. When there are labels for the target domain, the model can be fine-tuned on it with no or limited modification on the model's architecture. When there is no label for the target domain, then the problem falls under unsupervised domain adaptation. Domain Adaptation is a particular case of transfer learning that leverages labeled data in one or more related source domains, to learn a model for unseen or unlabeled data in a target domain \cite{Csurka2017}. One of the most prevalent domain adaptation technique is to minimize discrepancy between source and target domains so that the model representations become domain-invariant. 
+
+Self-supervised learning exploits the structure and patterns in the data itself to learn useful representations for downstream tasks. The basic idea is to construct auxiliary tasks and loss functions that do not need any labels and to train the model to perform well on these auxiliary tasks \cite{Zhao2022}. Constrastive learning, masked prediction, auto-regressive prediction, reconstruction are common tasks used in self-supervised learning. The representations from a pre-trained self-supervised model can be used for other tasks where a small-scale labelled dataset exist. 
+
+While domain adaptation tackles domain shift problem by adapting a model to a target domain, there are also alternative methods to achieve generalizable representations at the first place such as zero-shot/few-shot/low-shot learning. 
+
+Low-shot learning stands for building generalizable representations, usually with large-scale data and using them with zero or few labelled samples given for a downstream task. The success of large language models on few shot learning and domain generalization \cite{bert}, \cite{brown2020language} inspired recent breakthroughs in computer vision models that are more generalizable such as CLIP \cite{clip} and ALIGN \cite{align}. These type of models are composed of image encoder and text encoder. They are trained on web-scale dataset consisting of image-text pairs with contrastive loss. After pre-training, natural language is used to reference learned visual concepts enabling zero-shot transfer of the model to downstream tasks. They achieve comparable performance on many vision benchmarks to fully supervised alternatives. It's been also shown that their performances improve further with few-shot learning. Zero-shot image generation model DALL-E \cite{dalle}, which is built upon CLIP \cite{clip}, has been shown to understand abstract, novel, and imaginary concepts. 
+
+
+\subsection{Problem statement}
+
+While self-supervised vision-language models (SSVLM) possess decent generalization capabilities, two main limitations of these models are observed:
+1. They perform poorly on very specific domains and tasks, similar to non-expert human labellers. 
+2. They require finding the best performing prompt for a task, also known as prompt-engineering.
+
+
+\subsection{Motivation}
+
+\subsection{Proposed method}
+How the representations from SSVLM can be leveraged to adapt an existing task-specific model to a different domain is an open research area. In this thesis, new techniques will be explored to leverage capabilities of such large multi-modal pretrained models for domain adaptation. We hypothesize that the representations produced by these models contain world knowledge which can be utilized for adapting task-specific models. For instance, an image-segmentation model trained on day-time images can be adapted to night-time images by using the embeddings from SSLVM representing this domain shift. Human generated or learned prompts or combination of them can be used for this manner.
+
+
+\subsection{Related works}
+
+\clearpage
+\bibliographystyle{IEEEtran}
+\bibliography{bibliography}
+
+\end{document}

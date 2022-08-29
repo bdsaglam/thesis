@@ -1,2 +1,4 @@
-- Equivariance in domain adaptation
-- use of VAE in domain adaptation
+- Thesis framework
+    - Background, problem statement, motivation
+    - Proposed method
+    - Related works (5 - 20 papers)
