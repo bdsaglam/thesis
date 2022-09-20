@@ -66,8 +66,11 @@ How the representations from SSVLM can be leveraged to adapt an existing task-sp
 
 
 \subsection{Related works}
+Deep Unsupervised Domain Adaptation (DUDA) can be divided into four categories; Discrepancy-based methods, Adversarial discriminative methods, Adversarial generative methods, Self-supervision-based methods \cite{Zhao2022}.
 
-Sun et al. \cite{sun2019unsupervised} accomplishes aligning source and target domain by jointly training the model on primary classification task on source dataset and on auxiliary self-supervised tasks on both source and target datasets. These self-supervised tasks includes rotation prediction, flip prediction, and patch location prediction for images.
+Discrepancy-based methods aims to minimize the discrepancy among different domains. The idea is to make the model produce task-specific but domain-invariant features. There are various ways to explicity measure discrepancy such as multiple kernel variant of maximum mean discrepancies, second-order statistics of features, and etc. \cite{Zhao2022}. One of the challenges for these methods is to maintain the task-specific decision boundaries between classes \cite{saito2018maximum} while making domains indiscrimanable. \cite{saito2018maximum} proposes a minimax problem in which two classifiers are trained to maximize the discrepancy on the target domain, and then generate features that minimize this discrepancy. They measure domain discrepancy as L1 distance of class probability distributions predicted by each classifier.
+
+Adversarial Discrimantive methods achieves the same by training a domain discriminator such that the generated features become indiscrimanable by it. Sun et al. \cite{sun2019unsupervised} accomplishes aligning source and target domain by jointly training the model on primary classification task on source dataset and on auxiliary self-supervised tasks on both source and target datasets. These self-supervised tasks includes rotation prediction, flip prediction, and patch location prediction for images.
 
 \clearpage
 \bibliographystyle{IEEEtran}
